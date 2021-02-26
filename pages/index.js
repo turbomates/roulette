@@ -28,6 +28,8 @@ export default function Home() {
     dispatch({ type: "SPIN" });
   }, state.speed);
 
+  const lastTenBets = state.bets.slice(Math.max(state.bets.length - 10, 0)).reverse();
+
   return (
     <>
       <Head>
@@ -45,11 +47,11 @@ export default function Home() {
         <Button onClick={() => start("black")} color="black">Black</Button>
       </div>
 
-      <ol>
-        {state.bets.map(({ bet, result }, i) => (
-          <li>{bet} {result === "pending" ? "pending..." : bet === result ? "WIN" : "LOSE"}</li>
+      <div className={styles.bets}>
+        {lastTenBets.map(({ bet, result }, i) => (
+          <span key={i}>{bet} {result === "pending" ? "pending..." : bet === result ? "WIN" : "LOSE"}</span>
         ))}
-      </ol>
+      </div>
     </>
   )
 };

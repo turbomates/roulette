@@ -53,7 +53,7 @@ export const getNumberColor = (number) => numbers.find(([n]) => number === n)[1]
 export const generateRandomNumber = () => Math.round((Math.random() * 37));
 
 export const isRightNumber = (number, wheelAngle, ballAngle) => {
-  if (!number) return false;
+  if (number === null) return false;
 
   const index = numbers.findIndex(([n]) => number === n)
   const numberAngleRange = [

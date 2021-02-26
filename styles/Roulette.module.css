@@ -26,4 +26,11 @@
   color: white;
   cursor: pointer;
   text-align: center;
+  z-index: 10;
+}
+
+.bets {
+  margin-left: 150px;
+  display: flex;
+  flex-direction: column;
 }
